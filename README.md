@@ -18,5 +18,6 @@ http://localhost:5000/v2/_catalog
 //run container from main_app_compose.yml -> uruchamia obraz na kontenerze
 docker-compose -f .\main_app_compose.yml up -d 
 -----------------------------------------------
+//1. create main_app on docker hub in https://hub.docker.com/repositories/ewa1234
 docker tag sample_docker_app/main_app:latest ewa1234/main_app:latest
 docker push ewa1234/main_app:latest 
