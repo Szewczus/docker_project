@@ -12,7 +12,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-@ActiveProfiles("h2")
+@ActiveProfiles("test")
 class UserServiceTest {
     @MockBean
     private UserRepository userRepository;

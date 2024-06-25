@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ActiveProfiles("h2")
+@ActiveProfiles("test")
 @SpringBootTest
 @Sql("/databases/create_user.sql")
 class UserControllerTest {
@@ -38,7 +38,7 @@ class UserControllerTest {
         userDto.setEmail("test@gmail.com");
         userDto.setPassword("test");
         userDto.setSurname("Test");
-        this.mockMvc.perform(post("/register")
+        this.mockMvc.perform(post("/api/user/register")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(userDto)))
                 .andDo(print())
