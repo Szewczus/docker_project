@@ -4,7 +4,7 @@ CREATE TABLE user_entity(
     email VARCHAR(32),
     login VARCHAR(32) UNIQUE,
     name VARCHAR(32),
-    password VARCHAR(32),
+    password VARCHAR(100),
     surname VARCHAR(32),
     notification_on BOOLEAN
 );
