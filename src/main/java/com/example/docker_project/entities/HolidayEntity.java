@@ -1,19 +1,15 @@
 package com.example.docker_project.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @Table(name = "holiday_entity")
 public class HolidayEntity {
     @Id
@@ -24,6 +20,7 @@ public class HolidayEntity {
     private String departure_date;
     private String address;
     private Double accomodation_cost;
+
     @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
