@@ -10,15 +10,16 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "item_cost_entity")
+@Table(name = "pack_item_entity")
 @Getter
 @Setter
-public class ItemCost {
+public class PackItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String item;
-    private Double cost;
+    private Integer item_count;
+    private String description;
     @ManyToOne(fetch = FetchType.EAGER)
     private HolidayEntity holiday;
 }

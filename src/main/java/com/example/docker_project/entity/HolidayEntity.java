@@ -27,9 +27,9 @@ public class HolidayEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<PackItem> packItemSet;
+    private Set<PackItemEntity> packItemEntitySet;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ItemCost> itemCostSet;
+    private Set<ItemCostEntity> itemCostEntitySet;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<TripPlanEntity> tripPlanEntities;
 
