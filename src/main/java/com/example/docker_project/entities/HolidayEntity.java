@@ -1,4 +1,4 @@
-package com.example.docker_project.entity;
+package com.example.docker_project.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,17 +20,17 @@ public class HolidayEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String destination;
-    private LocalDateTime arrive_date;
-    private LocalDateTime departure_date;
+    private String arrive_date;
+    private String departure_date;
     private String address;
     private Double accomodation_cost;
     @ManyToOne(fetch = FetchType.EAGER)
     private UserEntity user;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<PackItemEntity> packItemEntitySet;
+    private Set<PackItemEntity> packItems;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ItemCostEntity> itemCostEntitySet;
+    private Set<ItemCostEntity> itemsCosts;
     @OneToMany(mappedBy = "holiday", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<TripPlanEntity> tripPlanEntities;
+    private Set<TripPlanEntity> tripPlans;
 
 }

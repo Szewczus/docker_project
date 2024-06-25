@@ -1,4 +1,4 @@
-package com.example.docker_project.entity;
+package com.example.docker_project.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.example.docker_project.entity;
+package com.example.docker_project.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,14 +10,15 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "trip_plan_point_entity")
+@Table(name = "item_cost_entity")
 @Getter
 @Setter
-public class TripPlanEntity {
+public class ItemCostEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String description;
+    private String item;
+    private Double cost;
     @ManyToOne(fetch = FetchType.EAGER)
     private HolidayEntity holiday;
 }

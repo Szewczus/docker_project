@@ -1,4 +1,4 @@
-package com.example.docker_project.entity;
+package com.example.docker_project.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +18,7 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
+    @Column(unique = true, nullable = false)
     private String login;
     private String password;
     private String name;

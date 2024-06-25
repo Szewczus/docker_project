@@ -1,4 +1,4 @@
-package com.example.docker_project.controller;
+package com.example.docker_project.restcontrollers;
 
 import org.junit.jupiter.api.Test;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

@@ -1,6 +1,6 @@
 package com.example.docker_project.repositories;
 
-import com.example.docker_project.entity.PackItemEntity;
+import com.example.docker_project.entities.PackItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
