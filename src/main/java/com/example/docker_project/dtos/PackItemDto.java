@@ -8,4 +8,5 @@ public class PackItemDto {
     private String item;
     private Integer item_count;
     private String description;
+    private Long holidayId;
 }
