@@ -2,7 +2,6 @@ package com.example.docker_project.restcontrollers;
 
 import com.example.docker_project.dtos.HolidayDto;
 import com.example.docker_project.dtos.TripPlanDto;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
