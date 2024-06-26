@@ -11,6 +11,8 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Slf4j
 @Service
 public class HolidayService {
@@ -22,6 +24,11 @@ public class HolidayService {
     public HolidayEntity saveHoliday(HolidayDto holidayDto) {
         HolidayEntity holidayEntity = holidayDtoToHolidayEntity(holidayDto);
         return holidayRepository.save(holidayEntity);
+    }
+
+    public HolidayEntity findHolidayById(Long id){
+        Optional<HolidayEntity> holidayEntity = holidayRepository.findById(id);
+        return holidayEntity.orElse(null);
     }
 
     private HolidayEntity holidayDtoToHolidayEntity(HolidayDto holidayDto) {

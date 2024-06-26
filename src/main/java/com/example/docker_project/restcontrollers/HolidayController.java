@@ -5,10 +5,7 @@ import com.example.docker_project.entities.HolidayEntity;
 import com.example.docker_project.services.HolidayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/holiday")
@@ -19,6 +16,15 @@ public class HolidayController {
     @PostMapping("/save")
     ResponseEntity addHoliday(@RequestBody HolidayDto holidayDto) {
         HolidayEntity holidayEntity = holidayService.saveHoliday(holidayDto);
+        return ResponseEntity.ok(holidayEntity);
+    }
+
+    @GetMapping("/findHoliday/{id}")
+    ResponseEntity findHolidayById(@PathVariable Long id) {
+        HolidayEntity holidayEntity = holidayService.findHolidayById(id);
+        if(holidayEntity==null){
+            return ResponseEntity.ok("no such holiday id found in db");
+        }
         return ResponseEntity.ok(holidayEntity);
     }
 }
