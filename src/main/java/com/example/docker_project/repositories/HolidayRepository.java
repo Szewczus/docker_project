@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HolidayRepository extends JpaRepository<HolidayEntity, Long> {
+    HolidayEntity findHolidayEntityById(Long id);
 }

@@ -7,4 +7,5 @@ public class ItemCostDto {
     private Long id;
     private String item;
     private Double cost;
+    private Long holidayId;
 }

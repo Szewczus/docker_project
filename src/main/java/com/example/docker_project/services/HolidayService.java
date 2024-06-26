@@ -27,8 +27,8 @@ public class HolidayService {
     private HolidayEntity holidayDtoToHolidayEntity(HolidayDto holidayDto) {
         HolidayEntity holiday = new HolidayEntity();
         holiday.setId(holidayDto.getId());
-        holiday.setAddress(holidayDto.getAddress());
-        holiday.setDestination(holidayDto.getDestination());
+        holiday.setDestination_address(holidayDto.getDestination_address());
+        holiday.setTravel_destination(holidayDto.getTravel_destination());
         holiday.setAccomodation_cost(holidayDto.getAccomodation_cost());
         holiday.setArrive_date(holidayDto.getArrive_date());
         holiday.setDeparture_date(holidayDto.getDeparture_date());

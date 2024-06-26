@@ -14,10 +14,10 @@ public class HolidayEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String destination;
+    private String travel_destination;
+    private String destination_address;
     private String arrive_date;
     private String departure_date;
-    private String address;
     private Double accomodation_cost;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -37,13 +37,6 @@ public class HolidayEntity {
         this.id = id;
     }
 
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
 
     public String getArrive_date() {
         return arrive_date;
@@ -61,14 +54,6 @@ public class HolidayEntity {
         this.departure_date = departure_date;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public Double getAccomodation_cost() {
         return accomodation_cost;
     }
@@ -83,5 +68,21 @@ public class HolidayEntity {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public String getDestination_address() {
+        return destination_address;
+    }
+
+    public void setDestination_address(String destination_address) {
+        this.destination_address = destination_address;
+    }
+
+    public String getTravel_destination() {
+        return travel_destination;
+    }
+
+    public void setTravel_destination(String travel_destination) {
+        this.travel_destination = travel_destination;
     }
 }
