@@ -21,4 +21,14 @@ public class ItemCostEntity {
     private Double cost;
     @ManyToOne(fetch = FetchType.EAGER)
     private HolidayEntity holiday;
+
+    @Override
+    public String toString() {
+        return "ItemCostEntity{" +
+                "id=" + id +
+                ", item='" + item + '\'' +
+                ", cost=" + cost +
+                ", holiday=" + holiday +
+                '}';
+    }
 }

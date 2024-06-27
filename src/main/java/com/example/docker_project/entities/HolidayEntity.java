@@ -95,10 +95,6 @@ public class HolidayEntity {
                 ", arrive_date='" + arrive_date + '\'' +
                 ", departure_date='" + departure_date + '\'' +
                 ", accomodation_cost=" + accomodation_cost +
-                ", user=" + user +
-                ", packItems=" + packItems +
-                ", itemsCosts=" + itemsCosts +
-                ", tripPlans=" + tripPlans +
                 '}';
     }
 }

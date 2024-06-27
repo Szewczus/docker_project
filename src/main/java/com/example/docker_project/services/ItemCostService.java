@@ -7,6 +7,8 @@ import com.example.docker_project.repositories.ItemCostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemCostService {
     @Autowired
@@ -27,4 +29,10 @@ public class ItemCostService {
         return itemCostEntity;
     }
 
+    public List<ItemCostEntity> showItemsCosts(Long holidayId) {
+        List<ItemCostEntity> itemCostEntities = itemCostRepository.findItemCostEntitiesByHoliday(holidayId);
+        System.out.print("itemCostEntities: ");
+        itemCostEntities.forEach(System.out::println);
+        return itemCostEntities;
+    }
 }
