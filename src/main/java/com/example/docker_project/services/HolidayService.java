@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,7 +49,15 @@ public class HolidayService {
 
     public List<HolidayEntity> showHolidays(){
         UserEntity userFromToken = userService.getUserFromToken();
-        return holidayRepository.findHolidayEntitiesByUser(userFromToken);
+        List<HolidayEntity> holidayEntities =  holidayRepository.findHolidayEntitiesByUser(userFromToken);
+        if(!holidayEntities.isEmpty()){
+            log.info("holidayEntities: ");
+            holidayEntities.forEach(System.out::println);
+        }
+        else {
+            log.info("holidayEntities is empty");
+        }
+        return holidayEntities;
     }
 
     private String getLoginFromSession(){

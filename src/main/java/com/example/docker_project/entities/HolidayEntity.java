@@ -85,4 +85,20 @@ public class HolidayEntity {
     public void setTravel_destination(String travel_destination) {
         this.travel_destination = travel_destination;
     }
+
+    @Override
+    public String toString() {
+        return "HolidayEntity{" +
+                "id=" + id +
+                ", travel_destination='" + travel_destination + '\'' +
+                ", destination_address='" + destination_address + '\'' +
+                ", arrive_date='" + arrive_date + '\'' +
+                ", departure_date='" + departure_date + '\'' +
+                ", accomodation_cost=" + accomodation_cost +
+                ", user=" + user +
+                ", packItems=" + packItems +
+                ", itemsCosts=" + itemsCosts +
+                ", tripPlans=" + tripPlans +
+                '}';
+    }
 }
