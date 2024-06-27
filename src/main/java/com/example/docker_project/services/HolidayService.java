@@ -2,6 +2,7 @@ package com.example.docker_project.services;
 
 import com.example.docker_project.dtos.HolidayDto;
 import com.example.docker_project.entities.HolidayEntity;
+import com.example.docker_project.entities.UserEntity;
 import com.example.docker_project.repositories.HolidayRepository;
 import com.example.docker_project.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -9,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -20,6 +23,8 @@ public class HolidayService {
     HolidayRepository holidayRepository;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UserService userService;
 
     public HolidayEntity saveHoliday(HolidayDto holidayDto) {
         HolidayEntity holidayEntity = holidayDtoToHolidayEntity(holidayDto);
@@ -41,6 +46,11 @@ public class HolidayService {
         holiday.setDeparture_date(holidayDto.getDeparture_date());
         holiday.setUser(userRepository.findUserEntityByLogin(getLoginFromSession()));
         return holiday;
+    }
+
+    public List<HolidayEntity> showHolidays(){
+        UserEntity userFromToken = userService.getUserFromToken();
+        return holidayRepository.findHolidayEntitiesByUser(userFromToken);
     }
 
     private String getLoginFromSession(){

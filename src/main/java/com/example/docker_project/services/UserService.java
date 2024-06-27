@@ -5,6 +5,9 @@ import com.example.docker_project.entities.UserEntity;
 import com.example.docker_project.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -40,5 +43,18 @@ public class UserService implements UserDetailsService {
             log.info("User found in the database: {}", user);
         }
         return new User(user.getUsername(), user.getPassword(), user.getAuthorities());
+    }
+
+    public UserEntity getUserFromToken() {
+        String login = getLoginFromToken();
+        return userRepository.findUserEntityByLogin(login);
+    }
+
+    public String getLoginFromToken(){
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        String loginFromSession = authentication.getPrincipal().toString();
+        log.info("Login from session: " + loginFromSession);
+        return loginFromSession;
     }
 }
