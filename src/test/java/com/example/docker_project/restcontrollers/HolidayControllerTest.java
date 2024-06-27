@@ -1,7 +1,6 @@
 package com.example.docker_project.restcontrollers;
 
 import com.example.docker_project.dtos.HolidayDto;
-import com.example.docker_project.entities.HolidayEntity;
 import com.example.docker_project.entities.UserEntity;
 import com.example.docker_project.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,8 +26,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-
-import java.util.Set;
 
 @ActiveProfiles("test")
 @SpringBootTest
