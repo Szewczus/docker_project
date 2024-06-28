@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS user_entity CASCADE;
 CREATE TABLE user_entity(
-    id INTEGER,
+    id bigint not null primary key,
     email VARCHAR(32),
     login VARCHAR(32) UNIQUE,
     name VARCHAR(32),

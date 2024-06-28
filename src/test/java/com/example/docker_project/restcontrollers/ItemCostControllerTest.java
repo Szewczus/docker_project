@@ -42,6 +42,7 @@ class ItemCostControllerTest {
         ItemCostDto itemCostDto = new ItemCostDto();
         itemCostDto.setCost(1000.0);
         itemCostDto.setItem("car");
+        itemCostDto.setId(5L);
 
         mockMvc.perform(post("/item/cost/save")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -52,7 +53,7 @@ class ItemCostControllerTest {
     @Test
     @WithMockUser(username = "testUser", roles = {"USER"})
     void showItemsCosts() throws Exception {
-        mockMvc.perform(get("/item/cost/show/all/2")
+        mockMvc.perform(get("/item/cost/showAllItemCostsByHolidayId/2")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());

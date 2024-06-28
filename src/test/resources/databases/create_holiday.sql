@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS holiday_entity CASCADE;
 DROP TABLE IF EXISTS user_entity CASCADE;
 
 CREATE TABLE user_entity(
-                            id integer primary key,
+                            id bigint not null primary key,
                             email VARCHAR(32),
                             login VARCHAR(32) UNIQUE,
                             name VARCHAR(32),
@@ -12,7 +12,7 @@ CREATE TABLE user_entity(
 );
 create table holiday_entity
 (
-    id                integer primary key,
+    id                bigint  not null primary key,
     accomodation_cost double precision,
     arrive_date       varchar,
     departure_date    varchar,

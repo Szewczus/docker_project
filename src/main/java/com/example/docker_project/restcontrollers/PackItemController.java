@@ -21,9 +21,9 @@ public class PackItemController {
         return ResponseEntity.ok(packItemEntity);
     }
 
-    @GetMapping("/show/{id}")
-    public ResponseEntity<List<PackItemEntity>> show(@PathVariable Long id){
-        List<PackItemEntity>packItemEntities = packItemService.showAllUserPackItem(id);
+    @GetMapping("/showByHolidayId/{holidayId}")
+    public ResponseEntity<List<PackItemEntity>> showPackItemsByHolidayId(@PathVariable Long holidayId){
+        List<PackItemEntity>packItemEntities = packItemService.showAllUserPackItem(holidayId);
         return ResponseEntity.ok(packItemEntities);
     }
 

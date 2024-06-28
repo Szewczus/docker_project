@@ -20,8 +20,8 @@ public class ItemCostController {
         return ResponseEntity.ok(itemCostService.save(itemCostDto));
     }
 
-    @GetMapping("/show/all/{holidayId}")
-    ResponseEntity<List<ItemCostEntity>> showAllHolidaysByHolidayId(@PathVariable Long holidayId) {
+    @GetMapping("/showAllItemCostsByHolidayId/{holidayId}")
+    ResponseEntity<List<ItemCostEntity>> showAllItemCostsByHolidayId(@PathVariable Long holidayId) {
         return ResponseEntity.ok(itemCostService.showItemsCosts(holidayId));
     }
 }

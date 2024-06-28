@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS item_cost_entity CASCADE;
 DROP TABLE IF EXISTS holiday_entity CASCADE;
 DROP TABLE IF EXISTS user_entity CASCADE;
 CREATE TABLE user_entity(
-                            id INTEGER primary key ,
+                            id bigint primary key ,
                             email VARCHAR(32),
                             login VARCHAR(32) UNIQUE,
                             name VARCHAR(32),
@@ -12,7 +12,7 @@ CREATE TABLE user_entity(
 );
 create table holiday_entity
 (
-    id                integer primary key,
+    id                bigint primary key,
     accomodation_cost double precision,
     arrive_date       varchar,
     departure_date    varchar,
@@ -34,6 +34,6 @@ create table item_cost_entity
         constraint fkb75cobc94nhgpcfmgopspppor
             references holiday_entity
 );
-INSERT INTO public.user_entity VALUES (2, 't@g.com', 'test', 'Ewa', 'test', 'ewa', true);
-INSERT INTO public.holiday_entity VALUES (2, 5000.0, '26.06.2024', '26.06.2024', 'Croatia', 'Croatia 2', 2);
-INSERT INTO public.item_cost_entity VALUES (2, '1000', 'car', 2)
+INSERT INTO public.user_entity VALUES (3, 't@g.com', 'test', 'Ewa', 'test', 'ewa', true);
+INSERT INTO public.holiday_entity VALUES (3, 5000.0, '26.06.2024', '26.06.2024', 'Croatia', 'Croatia 2', 3);
+INSERT INTO public.item_cost_entity VALUES (3, '1000', 'car', 3)
