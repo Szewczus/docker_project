@@ -15,7 +15,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -44,6 +44,7 @@ class PackItemControllerTest {
         packItemDto.setItem("test item");
         packItemDto.setDescription("test description");
         packItemDto.setItem_count(1);
+        packItemDto.setId(7L);
 
         mockMvc.perform(post("/pack/item/save")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -51,5 +52,15 @@ class PackItemControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.item").value("test item"));
+    }
+
+    @Test
+    @WithMockUser(username = "testUser")
+    public void showPackItemsByHolidayId() throws Exception {
+        mockMvc.perform(get("/pack/item//showByHolidayId/6"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].item").value("car"));
+
     }
 }

@@ -24,7 +24,6 @@ create table holiday_entity
             references user_entity
 );
 
-
 create table item_cost_entity
 (
     id         bigint not null
@@ -48,3 +47,6 @@ create table pack_item_entity
             references holiday_entity
 );
 
+INSERT INTO public.user_entity VALUES (6, 't@g.com', 'test', 'Ewa', 'test', 'ewa', true);
+INSERT INTO public.holiday_entity VALUES (6, 5000.0, '26.06.2024', '26.06.2024', 'Croatia', 'Croatia 2', 6);
+INSERT INTO public.pack_item_entity VALUES (6, 'test description', 'car', 3, 6)
