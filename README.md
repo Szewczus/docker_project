@@ -23,3 +23,6 @@ docker tag sample_docker_app/main_app:latest ewa1234/main_app:latest
 docker push ewa1234/main_app:latest 
 //stworzenie i uruchomienie kontenera z pliky yml
 docker-compose -f .\db_compose.yml up -d
+-------------------------------------------------
+docker-compose -f .\db_compose.yml up -d
+docker run --network holiday-net -p 8080:8080 ewa1234/main_app:2
