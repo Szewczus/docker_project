@@ -34,3 +34,6 @@ create table item_cost_entity
         constraint fkb75cobc94nhgpcfmgopspppor
             references holiday_entity
 );
+INSERT INTO public.user_entity VALUES (2, 't@g.com', 'test', 'Ewa', 'test', 'ewa', true);
+INSERT INTO public.holiday_entity VALUES (2, 5000.0, '26.06.2024', '26.06.2024', 'Croatia', 'Croatia 2', 2);
+INSERT INTO public.item_cost_entity VALUES (2, '1000', 'car', 2)

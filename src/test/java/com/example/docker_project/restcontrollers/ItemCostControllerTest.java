@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -27,6 +28,8 @@ class ItemCostControllerTest {
     private WebApplicationContext webApplicationContext;
     @Autowired
     private ObjectMapper objectMapper;
+
+
 
     @BeforeEach
     public void setUp() {
@@ -43,6 +46,14 @@ class ItemCostControllerTest {
         mockMvc.perform(post("/item/cost/save")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(itemCostDto)))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+    @Test
+    @WithMockUser(username = "testUser", roles = {"USER"})
+    void showItemsCosts() throws Exception {
+        mockMvc.perform(get("/item/cost/show/all/2")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
