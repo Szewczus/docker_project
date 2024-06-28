@@ -23,7 +23,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   main_app:
-    image: sample_docker_app/main_app
+    image: ewa1234/main_app:2
     depends_on:
       - postgres
     container_name: main_app_compose
