@@ -45,3 +45,6 @@ create table trip_plan_point_entity
         constraint fkqkwe9a9tv5f11dyw1c9esjru3
             references holiday_entity
 );
+INSERT INTO public.user_entity VALUES (8, 't@g.com', 'test', 'Ewa', 'test', 'ewa', true);
+INSERT INTO public.holiday_entity VALUES (8, 5000.0, '26.06.2024', '26.06.2024', 'Croatia', 'Croatia 2', 8);
+INSERT INTO public.trip_plan_point_entity VALUES (8, 'test description', 8)

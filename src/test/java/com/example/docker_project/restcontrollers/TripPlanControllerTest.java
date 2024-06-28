@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -76,5 +77,14 @@ class TripPlanControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.description").value("description"));
 
+    }
+
+    @Test
+    @WithMockUser(username = "testUser", roles = {"USER"})
+    void showTripPlanByHolidayId() throws Exception {
+        mockMvc.perform(get("/trip/plan/showTripPlanByHolidayId/8"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].description").value("test description"));
     }
 }
