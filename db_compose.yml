@@ -1,7 +1,12 @@
 version: '3.9'
 networks:
   mynetwork:
+    name: mynetwork
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+          gateway: 172.23.0.1
 services:
   postgres:
     image: postgres
@@ -11,7 +16,8 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: mydatabase
     networks:
-      - mynetwork
+      mynetwork:
+        ipv4_address: 172.23.0.3
     ports:
       - "5432:5432"
     volumes:
@@ -22,11 +28,12 @@ services:
       - postgres
     container_name: main_app_compose
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://172.23.0.2:5432/mydatabase
+      SPRING_DATASOURCE_URL: jdbc:postgresql://172.23.0.3:5432/mydatabase
       SPRING_DATASOURCE_USERNAME: myuser
       SPRING_DATASOURCE_PASSWORD: mypassword
     networks:
-      - mynetwork
+      mynetwork:
+        ipv4_address: 172.23.0.2
     ports:
       - "8080:8080"
 volumes:
