@@ -17,12 +17,12 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
   main_app:
-    image: ewa1234/main_app:2
+    image: sample_docker_app/main_app
     depends_on:
       - postgres
     container_name: main_app_compose
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/mydatabase
+      SPRING_DATASOURCE_URL: jdbc:postgresql://172.23.0.2:5432/mydatabase
       SPRING_DATASOURCE_USERNAME: myuser
       SPRING_DATASOURCE_PASSWORD: mypassword
     networks:
