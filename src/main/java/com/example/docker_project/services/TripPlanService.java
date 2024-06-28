@@ -7,6 +7,8 @@ import com.example.docker_project.repositories.TripPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TripPlanService {
     @Autowired
@@ -19,6 +21,11 @@ public class TripPlanService {
         return tripPlanRepository.save(tripPlanEntity);
     }
 
+    public List<TripPlanEntity> showTripPanByHolidayId(Long holidayId){
+        List<TripPlanEntity> tripPlanEntities = tripPlanRepository.findTripPlanEntitiesByHolidaId(holidayId);
+        tripPlanEntities.forEach(System.out::println);
+        return tripPlanEntities;
+    }
     private TripPlanEntity tripPlanDtoToTripPlanEntity(TripPlanDto tripPlanDto) {
         TripPlanEntity tripPlanEntity = new TripPlanEntity();
         tripPlanEntity.setDescription(tripPlanDto.getDescription());
