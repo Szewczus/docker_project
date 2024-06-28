@@ -7,6 +7,8 @@ import com.example.docker_project.repositories.PackItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PackItemService {
     @Autowired
@@ -18,6 +20,13 @@ public class PackItemService {
     public PackItemEntity save(PackItemDto packItemDto) {
         PackItemEntity packItemEntity=packItemDtoToPackItemEntity(packItemDto);
         return packItemRepository.save(packItemEntity);
+    }
+
+    public List<PackItemEntity> showAllUserPackItem(Long holidayId) {
+
+        List<PackItemEntity> packItemEntities = packItemRepository.findPackItemEntitiesByHoliday(holidayId);
+        packItemEntities.forEach(System.out::println);
+        return packItemEntities;
     }
 
     private PackItemEntity packItemDtoToPackItemEntity(PackItemDto packItemDto) {
