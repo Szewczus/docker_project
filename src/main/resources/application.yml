@@ -1,4 +1,6 @@
 spring:
+  kafka:
+    bootstrap-servers: localhost:9092
   application:
     name: docker_project
   datasource:
@@ -15,4 +17,4 @@ logging:
   file:
     name: mydatabase.log
 server:
-  port: 8080
+  port: 8081
