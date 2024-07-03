@@ -1,0 +1,3 @@
+2024-07-03 01:17:16.872  INFO 67808 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 0 disconnected.
+2024-07-03 08:02:52.486  INFO 67808 --- [kafka-producer-network-thread | producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=producer-1] Node 0 disconnected.
+2024-07-03 08:02:52.955  WARN 67808 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h45m46s110ms440µs500ns).
